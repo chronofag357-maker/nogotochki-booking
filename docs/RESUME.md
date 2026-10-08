@@ -6,7 +6,16 @@ https://github.com/chronofag357-maker/nogotochki-booking
 Skypro: 257109 frontend и 257110 admin отправлены, статус «Проверяем домашку».
 Контрольные вопросы frontend/admin/deploy отвечены; все учебные блоки 257109,
 257110,257111,257112 зелёные. Опросы личного мнения не заполнялись за пользователя.
-257111 deployment отчёт ещё не отправлен. 257112 итоговый проект ещё не сдан.
+257111 deployment отчёт отправлен 08.10.26 22:32, «Задание на проверке».
+257112 итоговый проект: комплект подготовлен, отправка проверяется отдельно.
+
+Дневник по шаблону: https://docs.google.com/spreadsheets/d/1RTaNSFdROfapEML8Ec1ck92T9L-W397RKfp--rBmHac/edit
+Видео 4:31: https://drive.google.com/file/d/17UisXLeMiz81jLzrUdrbC2uF-2JD-ROS/view
+Отчёт: https://drive.google.com/file/d/10oozwSeS67WhtEtTI7Vn1-PJRiuPxad2/view
+Дневник и видео reader по ссылке проверены. Видео без аудио, реальные кадры
+вкладки с исходными временными отметками. Все 3 npm test снова прошли.
+Исправлено мобильное переполнение grid: было 484px при viewport390,
+стало scrollWidth375 при viewport390. CSS повторно опубликован, соседние службы active.
 
 Дальше:
 1. Закончить честный текстовый отчёт деплоя на основе docs/DEPLOYED.md.
