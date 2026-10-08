@@ -1,0 +1,26 @@
+[Unit]
+Description=Nogotochki isolated study booking service
+After=network.target
+[Service]
+User=nogotochki
+Group=nogotochki
+WorkingDirectory=/opt/nogotochki/app
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=8793
+Environment=DB_PATH=/var/lib/nogotochki/booking.sqlite
+Environment=STUDIO_TIMEZONE=Europe/Moscow
+EnvironmentFile=-/etc/nogotochki/oauth.env
+ExecStart=/opt/nogotochki/node/bin/node server/http.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/nogotochki
+MemoryMax=192M
+CPUQuota=40%
+UMask=0077
+[Install]
+WantedBy=multi-user.target

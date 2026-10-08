@@ -5,6 +5,7 @@ export function hashPassword(password){
  return salt+':'+scryptSync(password,salt,64).toString('hex');
 }
 export function verifyPassword(password,stored){
+ if(!stored||!stored.includes(':'))return false;
  const [salt,hash]=stored.split(':');
  const actual=scryptSync(password,salt,64), expected=Buffer.from(hash,'hex');
  return expected.length===actual.length && timingSafeEqual(actual,expected);

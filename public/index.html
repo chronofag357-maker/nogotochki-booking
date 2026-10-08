@@ -1,14 +1,23 @@
-<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ноготочки — учебная запись</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ноготочки — учебная запись</title><link rel="stylesheet" href="/style.css"><script src="/app.js" type="module"></script>
 <header><b>Ноготочки</b><span>Учебный сервис · без оплаты</span></header><main>
 <h1>Время для себя</h1><p>Маникюр и брови. Запишитесь к своему мастеру.</p>
+<p>Учебный проект. Не вводите настоящие персональные данные. Услуги и записи тестовые, оплата не принимается.</p>
 <p id="message" role="status" aria-live="polite"></p><noscript>Для учебного интерфейса нужен JavaScript. Без него API не создаёт запись.</noscript>
+<p id="yandex-login" hidden><a class="yandex-button" href="/auth/yandex">Войти с Яндекс ID</a></p>
 <section id="auth"><h2>Вход или регистрация</h2><form id="auth-form" method="post" action="/api/login">
 <label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="username" autocapitalize="off" required maxlength="200">
 <label for="password">Пароль * (12–128 символов)</label><input id="password" name="password" type="password" autocomplete="current-password" required minlength="12" maxlength="128">
 <button id="show-password" type="button" aria-pressed="false">Показать пароль</button>
 <label for="name">Имя (для регистрации)</label><input id="name" name="name" autocomplete="name" maxlength="80">
 <div class="actions"><button type="submit" name="mode" value="login">Войти</button><button type="submit" name="mode" value="register">Создать аккаунт</button></div></form></section>
-<section id="account" hidden><h2 id="welcome">Личный кабинет</h2><button id="logout" type="button">Выйти</button><div id="bookings"></div></section>
+<section id="account" hidden><h2 id="welcome">Личный кабинет</h2><div class="actions"><button id="refresh-account" type="button">Обновить кабинет</button><button id="logout" type="button">Выйти</button></div><h3 id="notification-title">Уведомления</h3><div id="notifications"></div><h3>Мои записи</h3><div id="bookings"></div></section>
+<section id="admin" hidden><h2>Панель администратора</h2><button id="refresh-admin" type="button">Обновить панель</button><h3>Все записи</h3><div id="admin-bookings"></div><h3>Управление услугами</h3><div id="admin-services"></div><div id="admin-tools"></div></section>
+<section id="edit-booking" hidden><h2 id="edit-title">Изменить запись</h2><p>Номер записи сохраняется. Клиент может отменить или перенести запись не позднее чем за 24 часа.</p><form id="change-form" method="post">
+<label for="change-action">Действие</label><select id="change-action"><option value="cancel">Отменить</option><option value="reschedule">Перенести</option></select>
+<label for="change-reason">Причина отмены</label><input id="change-reason" maxlength="300">
+<label for="change-day">Новая дата</label><input id="change-day" type="date">
+<label for="change-time">Новое время (Москва)</label><input id="change-time" type="time" step="900">
+<div class="actions"><button type="submit">Сохранить изменение</button><button type="button" id="close-change">Закрыть</button></div></form></section>
 <section><h2>Записаться</h2><form id="booking-form" action="/api/bookings" method="post">
 <label for="service">Услуга *</label><select id="service" name="service_id" required><option value="">Выберите услугу</option></select>
 <label for="master">Мастер *</label><select id="master" name="master_id" required><option value="">Выберите мастера</option></select>
@@ -17,4 +26,4 @@
 <label for="time">Время *</label><select id="time" name="start_min" required><option value="">Сначала выберите услугу, мастера и дату</option></select>
 <button type="submit">Подтвердить запись</button></form></section>
 <section><h2>Услуги студии</h2><div id="services"></div></section>
-</main><footer>Локальный учебный проект. Данные сохраняются в SQLite на этом компьютере.</footer></html>
+</main><footer>Учебный проект. Тестовые данные сохраняются в SQLite на сервере приложения.</footer></html>

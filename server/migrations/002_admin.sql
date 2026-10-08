@@ -1,0 +1,11 @@
+ALTER TABLE bookings ADD COLUMN cancel_reason TEXT;
+CREATE TABLE notifications (
+ id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id),
+ booking_id INTEGER NOT NULL REFERENCES bookings(id), message TEXT NOT NULL,
+ created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, read_at TEXT
+);
+CREATE TABLE audit (
+ id INTEGER PRIMARY KEY, actor_id INTEGER NOT NULL REFERENCES users(id),
+ booking_id INTEGER NOT NULL REFERENCES bookings(id), action TEXT NOT NULL,
+ details TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
