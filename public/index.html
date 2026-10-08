@@ -1,0 +1,20 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ноготочки — учебная запись</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+<header><b>Ноготочки</b><span>Учебный сервис · без оплаты</span></header><main>
+<h1>Время для себя</h1><p>Маникюр и брови. Запишитесь к своему мастеру.</p>
+<p id="message" role="status" aria-live="polite"></p><noscript>Для учебного интерфейса нужен JavaScript. Без него API не создаёт запись.</noscript>
+<section id="auth"><h2>Вход или регистрация</h2><form id="auth-form" method="post" action="/api/login">
+<label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="username" autocapitalize="off" required maxlength="200">
+<label for="password">Пароль * (12–128 символов)</label><input id="password" name="password" type="password" autocomplete="current-password" required minlength="12" maxlength="128">
+<button id="show-password" type="button" aria-pressed="false">Показать пароль</button>
+<label for="name">Имя (для регистрации)</label><input id="name" name="name" autocomplete="name" maxlength="80">
+<div class="actions"><button type="submit" name="mode" value="login">Войти</button><button type="submit" name="mode" value="register">Создать аккаунт</button></div></form></section>
+<section id="account" hidden><h2 id="welcome">Личный кабинет</h2><button id="logout" type="button">Выйти</button><div id="bookings"></div></section>
+<section><h2>Записаться</h2><form id="booking-form" action="/api/bookings" method="post">
+<label for="service">Услуга *</label><select id="service" name="service_id" required><option value="">Выберите услугу</option></select>
+<label for="master">Мастер *</label><select id="master" name="master_id" required><option value="">Выберите мастера</option></select>
+<label for="day">Дата * (время студии: Москва)</label><input id="day" name="day" type="date" required>
+<button id="load-slots" type="button">Показать свободное время</button>
+<label for="time">Время *</label><select id="time" name="start_min" required><option value="">Сначала выберите услугу, мастера и дату</option></select>
+<button type="submit">Подтвердить запись</button></form></section>
+<section><h2>Услуги студии</h2><div id="services"></div></section>
+</main><footer>Локальный учебный проект. Данные сохраняются в SQLite на этом компьютере.</footer></html>
